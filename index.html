@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Every nth Frame</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <style>
+        * { /* Material Theme Stuff */
+          --mdc-theme-primary: #1976d2;
+        }
+        #page{display:block;margin:auto;width:50%;padding-top:32px;};
+    </style>
+  </head>
+  <body class="mdc-typography">
+    <header class="mdc-toolbar mdc-toolbar--fixed">
+      <div class="mdc-toolbar__row">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+        <span class="mdc-toolbar__title">Every nth Frame</span>
+        </section>
+      </div>
+    </header>
+    <main class="mdc-toolbar-fixed-adjust">
+      <div id="page">
+        <label for="videoSelector">Pick a Video...</label>
+        <input id="videoSelector" name="videoSelector" type="file" accept="video/*"><br>
+        <div id="videoContainer" style="display:none;padding-bottom:16px;">
+          <video id="demoVideo" controls style="width:100%;"></video>
+          <button id="getFramesButton" onclick="loadFrames()" class="mdc-button mdc-button--raised">Get Frames</button>
+          <button id="optionsButton" onclick="options()" class="mdc-button mdc-button--raised">Show Options</button>
+          <br>
+        </div>
+        <div id="options" style="display:none">
+          <div class="mdc-text-field mdc-text-field--upgraded">
+            <input type="number" id="interval" class="mdc-text-field__input" value="0.5">
+            <label class="mdc-text-field__label mdc-text-field__label--float-above" for="interval">Get Frame Every... (Seconds)</label>
+            <div class="mdc-text-field__bottom-line"></div>
+          </div><br>
+          <div class="mdc-text-field mdc-text-field--upgraded">
+            <input type="number" id="startAt" class="mdc-text-field__input" value="0">
+            <label class="mdc-text-field__label mdc-text-field__label--float-above" for="startAt">Start at Time... (Seconds)</label>
+            <div class="mdc-text-field__bottom-line"></div>
+          </div>
+          <button id="optionsButton" onclick="document.querySelector('#startAt').value = document.querySelector('#demoVideo').currentTime" class="mdc-button mdc-button--raised">Current Time</button>
+        </div>
+        <div id="thumbs"></div>
+      </div>
+    </main>
+    <script src="javascript.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>mdc.autoInit();</script>
+  </body>
+</html>
