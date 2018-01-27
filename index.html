@@ -4,11 +4,15 @@
     <title>Every nth Frame</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         * { /* Material Theme Stuff */
           --mdc-theme-primary: #1976d2;
         }
         #page{display:block;margin:auto;width:50%;padding-top:32px;};
+        @media (min-width: 0px) and (max-width: 767px) {
+          #page{width:100%}
+        };
     </style>
   </head>
   <body class="mdc-typography">
